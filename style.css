@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: monospace;
+}
+.slider {
+    width: 100%; /* Slankiklis užims visą ekrano plotį */
+    height: auto; /* Slankiklis prisitaikys prie paveikslėlių aukščio */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; /* Pakeista iš absolute į relative */
+}
+
+.list {
+    position: relative; /* Pakeista iš absolute į relative */
+    height: 100%;
+    display: flex;
+    transition: transform 1s; /* Pakeista iš left į transform */
+}
+
+.list .item {
+    flex: 0 0 auto; /* Pridėta, kad elementai nepritemptų */
+    width: 100%;
+    max-height: 100vh; /* Pritaikyti maksimalų paveikslėlio aukštį */
+}
+
+.list img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.list .item img {
+    width: auto; /* Leisti nuotraukoms dinamiškai prisitaikyti prie jų natūralių matmenų */
+    height: auto; /* Taip pat leisti dinamiškai prisitaikyti prie aukščio */
+    max-width: 100%; /* Užtikrinti, kad nuotraukos neužimtų daugiau vietos nei jų tėvinis elementas */
+    max-height: 100%; /* Užtikrinti, kad nuotraukos neužimtų daugiau vietos nei jų tėvinis elementas */
+    min-width: 100%;
+    min-height: 100%;
+}
+.buttons {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+
+.buttons button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(252, 250, 250, 0.6);
+    color: rgb(61, 3, 3);
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    color: rgb(255, 250, 250);
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dots li {
+    list-style: none;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 250, 250);
+    margin: 20px;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.dots li.active {
+    width: 30px;
+    
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .slider {
+        width: 100%; /* Pritaikyti slankiklio plotį 100% ekranui */
+        height: auto; /* Leisti slankikliui dinamiškai prisitaikyti prie turinio aukščio */
+    }
+    .list {
+        width: max-content; /* Nustatyti dinaminį slankiklio plotį */
+    }
+    .list img {
+        max-width: 100%; /* Pritaikyti paveikslėlių plotį 100% tėviniam elementui */
+        height: auto; /* Leisti paveikslėliams dinamiškai prisitaikyti prie tėvinio elemento aukščio */
+    }
+    .buttons {
+        top: 90%; /* Pritaikyti mygtukų poziciją pagal mobilųjį įrenginį */
+    }
+}
+
